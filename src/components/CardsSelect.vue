@@ -26,7 +26,7 @@ export default {
             axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
                 .then( (response) => {
                     // handle success
-                    this.cardsArchetypes = response.data.slice(0, 30);
+                    this.cardsArchetypes = response.data;
                     console.log(this.cardsArchetypes);
                 })
                 .catch(function (error) {
