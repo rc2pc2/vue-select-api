@@ -11,7 +11,8 @@ export default {
     name: 'AppMain',
     data() {
         return {
-            cardsList: []
+            cardsList: [],
+            apiUrl : 'https://db.ygoprodeck.com/api/v7/cardinfo.php',
         }
     },
     components: {
@@ -21,7 +22,13 @@ export default {
     methods: {
 
         getCardsFromFilter(filter){
-            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0&archetype=' + filter)
+            axios.get(this.apiUrl, {
+                params: {
+                    num: 20,
+                    offset: 0,
+                    archetype : filter
+                }
+            })
                 .then( (response) => {
                     // handle success
                     this.cardsList = response.data.data;
