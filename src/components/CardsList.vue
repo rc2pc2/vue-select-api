@@ -1,14 +1,17 @@
 <template lang="">
-    <div>
+    <article class="single-card" v-for="card in cardsList">
         <h2>
-            Cards list
+            {{ card.name }}
         </h2>
-    </div>
+    </article>
 </template>
 <script>
 
 export default {
     name: 'CardsList',
+    props : {
+        cardsList : Array
+    }
 }
 </script>
 <style lang="">

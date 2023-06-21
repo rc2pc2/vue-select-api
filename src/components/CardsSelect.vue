@@ -1,8 +1,9 @@
 <template lang="">
     <div>
         <label for="cards-select"></label>
-        <select name="cards-select" id="cards-select" v-model="selectedFilter">
-            <option v-for="cardArchetype in cardsArchetypes" :value="cardArchetype.archetype_name">
+        <select name="cards-select" id="cards-select" v-model="selectedFilter"
+            @change="$emit('filteredCards', selectedFilter)">
+            <option v-for="cardArchetype in cardsArchetypes" :value="cardArchetype.archetype_name" >
                 {{ cardArchetype.archetype_name }}
             </option>
         </select>
@@ -33,8 +34,6 @@ export default {
                     console.log(error);
                 });
         },
-
-
     },
 
     created(){
